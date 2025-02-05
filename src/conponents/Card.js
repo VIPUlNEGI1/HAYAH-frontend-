@@ -12,12 +12,13 @@ const fadeInUp = {
 
 const staggerContainer = {
   hidden: { opacity: 1 },
-  visible: { transition: { staggerChildren: 0.3 } }, // Cards appear one by one
+  visible: { transition: { staggerChildren: 0.3 } },
 };
 
 const Card = () => {
   const navigate = useNavigate();
 
+  // Product data
   const products = [
     {
       title: "Basmati Rice",
@@ -50,23 +51,20 @@ const Card = () => {
       viewport={{ once: true, amount: 0.2 }}
       variants={staggerContainer}
     >
-  <motion.div
-  className="flex justify-center items-center gap-3 mb-4 text-center"
-  variants={fadeInUp}
->
-  {/* Image/Logo */}
-  <img
-    src={img.leaveimage} // Update this path to your logo/image
-    alt="Our Products Logo"
-    className="w-8 h-8 sm:w-10 sm:h-10"
-  />
+      {/* Heading Section */}
+      <motion.div
+        className="flex justify-center items-center gap-3 mb-4 text-center"
+        variants={fadeInUp}
+      >
+        <img
+          src={img.leaveimage} // Logo or Image
+          alt="Our Products Logo"
+          className="w-8 h-8 sm:w-10 sm:h-10"
+        />
+        <h2 className="text-3xl font-extrabold text-[#4B4E6D]">Our Products</h2>
+      </motion.div>
 
-  {/* Heading */}
-  <h2 className="text-3xl font-extrabold text-[#4B4E6D]">
-    Our Products
-  </h2>
-</motion.div>
-
+      {/* Introductory Text */}
       <motion.p
         className="text-lg text-gray-600 mb-6 text-center"
         variants={fadeInUp}
@@ -75,7 +73,7 @@ const Card = () => {
         premium rice crafted with unmatched quality and care.
       </motion.p>
 
-      {/* Product Cards */}
+      {/* Product Cards Section */}
       <motion.div
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
         variants={staggerContainer}
@@ -89,14 +87,19 @@ const Card = () => {
               onLearnMore={product.learnMore}
             />
           </motion.div>
+
+          
         ))}
+
+
+
       </motion.div>
 
       {/* View All Products Button */}
       <motion.div className="text-center mt-6" variants={fadeInUp}>
         <motion.button
           onClick={() => navigate("/product")}
-          className="bg-[#695a38d5] text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-[#6c5d47b9] transition transform hover:scale-105"
+          className="bg-[#695a38d5] text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-[#6c5d47b9] transition transform hover:scale-105 mb-11 mt-11"
           whileHover={{ scale: 1.05 }}
         >
           View All Products

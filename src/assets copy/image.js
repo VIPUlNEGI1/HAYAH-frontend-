@@ -36,7 +36,30 @@ import leaveimage from "./Image-folder/leaveimage.png";
 import riceseed from "./Image-folder/Group 2500.png";
 import misson from "./Image-folder/mission 1.png";
 import vision from "./Image-folder/vision 1.png";
+
+import cirtificate1 from "./Image-folder/image 8.png"
+import cirtificate2 from "./Image-folder/image 9.png";
+import cirtificate3 from "./Image-folder/image 10.png";
+import cirtificate4 from "./Image-folder/image 11.png";
+import cirtificate5  from "./Image-folder/image 12.png";
+import cirtificate6 from "./Image-folder/image 13.png"
+import cirtificate7 from "./Image-folder/image 14.png"
+import cirtificate8 from "./Image-folder/image 15.png"
+
+import OPI from "./Image-folder/OIP.jpg"
 export const img = {
+
+    OPI,
+cirtificate1,
+cirtificate2,
+cirtificate3,
+cirtificate4,
+cirtificate5,
+cirtificate6,
+cirtificate7,
+cirtificate8,
+
+
     bgimage,
     vision,
     misson,

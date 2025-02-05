@@ -1,61 +1,70 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import { img } from "../assets copy/image";
 
-const ProductPage = () => {
-  const products = [
-    {
-      id: 1,
-      title: 'Basmati Rice',
-      description:
-        'Our Premium Basmati Rice features long, non-sticky grains with a delightful aroma, perfect for authentic cuisines. Renowned for its exceptional taste and high nutritional value, it supports digestive health and overall well-being.',
-      img: '/path-to-basmati-image.jpg', // Replace with actual image path
-    },
-    {
-      id: 2,
-      title: 'Non Basmati Rice',
-      description:
-        'Our Non-Basmati Rice is light, gluten-free, and low in starch, offering a delicious taste with a low calorific value. Ideal for health-conscious individuals, it supports easy digestion and is perfect for those managing sugar levels or weight.',
-      img: '/path-to-non-basmati-image.jpg', // Replace with actual image path
-    },
-    {
-      id: 3,
-      title: 'Pesticides-Free Rice',
-      description:
-        'Our Pesticides-Free Rice is organically grown to retain its rich nutrient content and low moisture levels. Ideal for health-conscious consumers, it offers numerous health benefits in high-quality packaging at an affordable price.',
-      img: '/path-to-pesticides-free-image.jpg', // Replace with actual image path
-    },
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const SeeMoreProduct = () => {
+  const premiumBasmati = [
+    { image: "path-to-image1.jpg", title: "1121 Steamed Basmati Rice", description: "Extra-long grains, ideal for biryanis." },
+    { image: "path-to-image2.jpg", title: "1401 Sella Basmati Rice", description: "Golden-hued rice, perfect for pilafs and special occasions." },
+    { image: "path-to-image3.jpg", title: "1718 Steamed Basmati Rice", description: "Aromatic variety with a soft texture, great for daily use." },
+    { image: "path-to-image4.jpg", title: "PUSA Steamed Basmati Rice", description: "Shorter grains with a traditional aroma, ideal for quick recipes." },
+  ];
+
+  const nonBasmati = [
+    { image: "path-to-image5.jpg", title: "PR 11 Non-Basmati Rice", description: "Known for its soft texture, ideal for daily meals and festive dishes." },
+    { image: "path-to-image6.jpg", title: "PR 14 Non-Basmati Rice", description: "Offers long grains and a delightful aroma, perfect for gourmet cooking." },
+    { image: "path-to-image7.jpg", title: "Parmal Non-Basmati Rice", description: "Medium-grain rice with a soft texture, suitable for everyday cooking." },
+    { image: "path-to-image8.jpg", title: "Sugandha Non-Basmati Rice", description: "Naturally aromatic, with long grains and rich flavor, great for biryanis and pilafs." },
   ];
 
   return (
-    <div className=" mt-16 p-6 bg-gradient-to-b from-[#f4f4f8] to-white">
-      <h1 className="text-4xl font-extrabold text-gray-800 mb-6 text-center">Our Products</h1>
-      <p className="text-gray-600 text-lg text-center mb-10">
-        Explore our diverse range of premium rice products, carefully crafted to meet your needs.
-      </p>
+    <motion.div className="px-6 py-10 mt-20" initial="hidden" animate="visible" variants={fadeInUp}>
+      <motion.div className="shadow-md overflow-hidden" variants={fadeInUp}>
+        <motion.img src={img.riceImage} alt="Terraced Fields" className="w-full h-64 object-cover" variants={fadeInUp} />
+        <motion.div className="p-8 text-center" variants={fadeInUp}>
+          <h1 className="mt-8 text-3xl sm:text-4xl font-bold text-gray-800 mb-2"> Global Grain Pioneers</h1>
+          <p className="text-sm sm:text-base text-gray-500">Crafted by Nature, Perfected by Tradition</p>
+        </motion.div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-          >
-            <img
-              src={product.img}
-              alt={product.title}
-              className="w-full h-40 object-cover rounded-lg mb-4"
-              loading="lazy"
-            />
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
-              {product.title}
-            </h3>
-            <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-            <button className="bg-[#FFB400] text-white py-2 px-4 rounded-lg shadow hover:bg-[#FF9400] transition">
-              Learn More
-            </button>
-          </div>
-        ))}
-      </div>
-    </div>
+      {/* Premium Basmati Rice Collection */}
+      <motion.div className="mb-16 mt-20" variants={fadeInUp}>
+        <h2 className="text-2xl font-bold text-gray-800 mb-10">Our Premium Basmati Rice Collection</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {premiumBasmati.map((product, index) => (
+            <motion.div key={index} className="bg-white shadow-md rounded-lg overflow-hidden border" variants={fadeInUp}>
+              <img src={product.image} alt={product.title} className="w-full h-48 object-cover" />
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-gray-800">{product.title}</h3>
+                <p className="text-sm text-gray-600 mt-2">{product.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Non-Basmati Rice Collection */}
+      <motion.div variants={fadeInUp}>
+        <h2 className="text-2xl font-bold text-gray-800 mb-10">Our Non-Basmati Rice Collection</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {nonBasmati.map((product, index) => (
+            <motion.div key={index} className="bg-white shadow-md rounded-lg overflow-hidden border" variants={fadeInUp}>
+              <img src={product.image} alt={product.title} className="w-full h-48 object-cover" />
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-gray-800">{product.title}</h3>
+                <p className="text-sm text-gray-600 mt-2">{product.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
-export default ProductPage;
+export default SeeMoreProduct;

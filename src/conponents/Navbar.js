@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { img } from "../assets copy/image";
 
-
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -28,17 +27,33 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-6 lg:space-x-8 items-center text-gray-800 font-medium">
-          {["About", "Products", "Bulk Order Enquiry"].map((item, index) => (
-            <li key={index}>
-              <Link
-                to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                className="relative text-gray-800 hover:text-yellow-700 transition duration-300"
-              >
-                {item}
-                <span className="absolute w-0 h-[2px] bg-yellow-800 left-0 bottom-0 transition-all duration-300 hover:w-full"></span>
-              </Link>
-            </li>
-          ))}
+          <li>
+            <Link
+              to="/about"
+              className="relative text-gray-800 hover:text-yellow-700 transition duration-300"
+            >
+              About
+              <span className="absolute w-0 h-[2px] bg-yellow-800 left-0 bottom-0 transition-all duration-300 hover:w-full"></span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/product" // Explicit route for Products
+              className="relative text-gray-800 hover:text-yellow-700 transition duration-300"
+            >
+              Products
+              <span className="absolute w-0 h-[2px] bg-yellow-800 left-0 bottom-0 transition-all duration-300 hover:w-full"></span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/bulk-order-enquiry"
+              className="relative text-gray-800 hover:text-yellow-700 transition duration-300"
+            >
+              Bulk Order Enquiry
+              <span className="absolute w-0 h-[2px] bg-yellow-800 left-0 bottom-0 transition-all duration-300 hover:w-full"></span>
+            </Link>
+          </li>
         </ul>
 
         {/* WhatsApp & Contact Button */}
@@ -49,15 +64,14 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="hover:scale-110 transition-transform"
           >
-      <img
-  src={img.watsublogo}
-  alt="WhatsApp Icon"
-  className="w-12 sm:w-16 md:w-20 lg:w-18 h-auto object-contain transition-transform duration-300 "
-/>
-
+            <img
+              src={img.watsublogo}
+              alt="WhatsApp Icon"
+              className="w-12 sm:w-16 md:w-20 lg:w-18 h-auto object-contain transition-transform duration-300 "
+            />
           </a>
           <Link
-            to="/contact"
+            to="/contact-us"
             className="bg-yellow-800 text-white px-4 py-2 rounded-md shadow-md hover:bg-yellow-900 transition duration-300 text-sm md:text-base"
           >
             Contact Us
@@ -120,33 +134,34 @@ const Navbar = () => {
               </button>
 
               <ul className="flex flex-col items-center space-y-5 text-gray-800 font-medium mt-10">
-                {["About", "Products", "Bulk Order Enquiry"].map(
-                  (item, index) => (
-                    <motion.li
-                      key={index}
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ delay: index * 0.1, duration: 0.3 }}
-                    >
-                      <Link
-                        to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="text-gray-800 hover:text-yellow-700 transition duration-300"
-                        onClick={toggleMenu}
-                      >
-                        {item}
-                      </Link>
-                    </motion.li>
-                  )
-                )}
-
-                {/* WhatsApp Icon */}
-                <motion.li
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ delay: 0.4, duration: 0.3 }}
-                >
+                <li>
+                  <Link
+                    to="/about"
+                    className="text-gray-800 hover:text-yellow-700 transition duration-300"
+                    onClick={toggleMenu}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/product" // Explicit route for Products
+                    className="text-gray-800 hover:text-yellow-700 transition duration-300"
+                    onClick={toggleMenu}
+                  >
+                    Products
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/bulk-order-enquiry"
+                    className="text-gray-800 hover:text-yellow-700 transition duration-300"
+                    onClick={toggleMenu}
+                  >
+                    Bulk Order Enquiry
+                  </Link>
+                </li>
+                <li>
                   <a
                     href="https://wa.me/yourphonenumber"
                     target="_blank"
@@ -159,23 +174,16 @@ const Navbar = () => {
                       className="w-10 h-10 sm:w-10 sm:h-10 object-contain"
                     />
                   </a>
-                </motion.li>
-
-                {/* Contact Button */}
-                <motion.li
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ delay: 0.5, duration: 0.3 }}
-                >
+                </li>
+                <li>
                   <Link
-                    to="/contact"
+                    to="/contact-us"
                     className="bg-yellow-900 text-white px-6 py-2 rounded-md shadow-md hover:bg-yellow-700 transition duration-300 text-sm"
                     onClick={toggleMenu}
                   >
                     Contact Us
                   </Link>
-                </motion.li>
+                </li>
               </ul>
             </motion.div>
           </>

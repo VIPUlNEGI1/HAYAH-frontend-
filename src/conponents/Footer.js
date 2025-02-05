@@ -27,9 +27,9 @@ const Footer = () => {
           {/* Navigation Links */}
           <nav className="flex flex-wrap justify-center md:justify-start space-x-4 sm:space-x-8 mb-4 md:mb-0 text-sm sm:text-base font-medium">
             <Link to="/about" className="hover:text-[#F4B400] transition duration-300">About</Link>
-            <Link to="/products" className="hover:text-[#F4B400] transition duration-300">Products</Link>
+            <Link to="/product" className="hover:text-[#F4B400] transition duration-300">Products</Link>
             <Link to="/bulk-order-enquiry" className="hover:text-[#F4B400] transition duration-300">Bulk Order</Link>
-            <Link to="/contact" className="hover:text-[#F4B400] transition duration-300">Contact Us</Link>
+            <Link to="/contact-us" className="hover:text-[#F4B400] transition duration-300">Contact Us</Link>
           </nav>
 
           {/* Social Media Links */}

@@ -83,7 +83,7 @@ const InquiryForm = () => {
   };
 
   return (
-    <div className=" mt-36 min-h-screen bg-gradient-to-b from-[#f7f5f368] to-[#fbeed5] py-12 px-4">
+    <div className=" mt-36 min-h-screen bg-gradient-to-b from-[#f7f5f368] to-[#fcf4e4c2] py-12 px-4">
       {/* Header Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-[#4B4E6D] mb-4">Bulk Order Inquiry</h1>

@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
-
-import CardSection from "./Card";
+import { img } from "../assets copy/image";
+import Card from "./Card";
 import Precence from "./Precence";
 import Contact from "./Contact";
 import WorkingProcess from "./WorkingProcess";
-import { img } from "../assets copy/image";
-import Card from "./Card";
 import WhyChooseUs from "./WhychoseUs";
 import GrainLength from "./GainLength";
+import CombinedComponent from "./DataComponent";
 
-// Framer Motion Variants (Slower Animation Speed)
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: "easeInOut" } },
@@ -21,29 +21,28 @@ const fadeInLeft = {
   visible: { opacity: 1, x: 0, transition: { duration: 1.2, ease: "easeInOut" } },
 };
 
-const fadeInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 1.2, ease: "easeInOut" } },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 1 },
-  visible: { transition: { staggerChildren: 0.3 } },
-};
-
 const HomePage = () => {
+  // Create a reference for the Contact component
+  const contactRef = useRef(null);
+
+  // Function to scroll to the Contact section
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const navigate = useNavigate(); // Initialize navigate
   return (
     <div>
       {/* Hero Section */}
       <motion.header
-  className="mt-28 relative w-full bg-cover bg-center py-16"
-  style={{ backgroundImage: `url(${img.riceImage})` }} // Fix background image
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  variants={fadeInUp}
->
-
+        className="mt-28 relative w-full bg-cover bg-center py-16"
+        style={{ backgroundImage: `url(${img.riceImage})` }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center relative space-y-6 md:space-y-0">
           {/* Left Section */}
           <motion.div
@@ -57,129 +56,44 @@ const HomePage = () => {
               Be A Part Of The Heritage Shaped By More Than A Decade Of Experience In Setting Up Hundreds Of Rice Mills Across The Country.
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              {/* Button to scroll to Contact Section */}
               <motion.button
-                className="bg-yellow-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-yellow-900  hover:text-white"
+                className="bg-yellow-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-yellow-900"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
+                onClick={scrollToContact} // Calls the function to scroll
               >
                 Get In Touch
               </motion.button>
-              <motion.button
-                className="bg-transparent border border-yellow-800 text-yellow-800 px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-yellow-800 hover:text-white "
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
-              >
-                See Products
-              </motion.button>
+           
+              <motion.div>
+      <motion.button
+        className="bg-transparent border border-yellow-800 text-yellow-800 px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-yellow-800 hover:text-white"
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.5 }}
+        onClick={() => navigate("/product")} // Navigate to SeeMoreProduct page
+      >
+        See Products
+      </motion.button>
+    </motion.div>
+
             </div>
           </motion.div>
         </div>
       </motion.header>
-      <motion.div
-        className="mt-36 text-center mb-11"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
 
-      {/* Stats Section */}
-    <div className="text-center mt-16 ">
-  {/* Title */}
-  <h1 className="text-2xl sm:text-4xl mt-6 lg:text-5xl font-extrabold text-gray-900 mb-4 tracking-wide flex justify-center items-center gap-2">
-    <img
-      src={img.leaveimage} // Update this path
-      alt="Decorative Icon"
-      className="w-8 h-8 inline-block"
-    />
-    WHO WE ARE
-  </h1>
-
-  {/* Description */}
-  <p className="text-base sm:text-lg lg:text-xl text-gray-600 font-medium mb-11">
-    Renowned Manufacturer, Supplier And Exporter Of Basmati And Non Basmati Rice
-  </p>
-</div>
-      <motion.section
-        className=""
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <div className="mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 text-center"
-            variants={staggerContainer}
-          >
-            {[
-              { value: "30+", label: "Rice Products" },
-              { value: "14+ Yrs", label: "Rice Mill Manufacturing" },
-              { value: "5+ Yrs", label: "Rice Milling" },
-              { value: "160+", label: "Production Capacity per Day" },
-              { value: "20+", label: "Countries" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                className={`p-4 sm:p-5 rounded-md shadow-md flex flex-col justify-center items-center ${
-                  index % 2 === 0 ? "bg-white text-gray-800 border border-gray-800" : "bg-yellow-800 text-white"
-                }`}
-                variants={fadeInUp}
-              >
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">{stat.value}</h2>
-                <p className="text-sm sm:text-md mt-1">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* WHO WE ARE Section */}
-     {/* Collaboration Image */}
-     <motion.div variants={fadeInRight} className="text-center mt-16">
-  {/* Collaboration Image */}
-  <img
-    src={img.collabration}
-    alt="Collaboration"
-    width={250}
-    height={100}
-    className="mx-auto rounded-lg"
-    style={{ filter: "brightness(0.95) contrast(1.1)" }}
-  />
-
-  {/* Paragraph Description */}
-  <p className="text-base lg:text-xl text-gray-700 leading-relaxed mt-6 font-light px-4 sm:px-6 max-w-4xl mx-auto">
-    Founded in 2012 with Sagar Industries, specializing in rice mill infrastructure, we've equipped ~100 rice mills across India & Nepal, and shared our technology with leading brands. Building on this, our state-of-the-art rice mill, Mansi Overseas, has supplied top-quality rice to major Indian brands like Reliance and Dmart for the past five years. Now, leveraging decades of rice industry experience, AL HAYAH EXPORTS is committed to delivering unmatched quality and reliability to international partners. We uphold trust, transparency, and uncompromising standards, specializing in quality to build enduring partnerships and redefine global rice export excellence.
-  </p>
-</motion.div>
-
-
-    
-
-       
-        
-      </motion.div>
-            {/* Certificates Image */}
-            <motion.div variants={fadeInUp}>
-          <img
-            src={img.cirtificates}
-            alt="Certificates"
-            width={500}
-            height={300}
-            className="mx-auto py-11  "
-          />
-        </motion.div>
-
-<WhyChooseUs/>
-
-      {/* Animated Sections */}
-     <Card/>
-
-    <GrainLength/>
-
+      {/* Other Sections */}
+      <CombinedComponent />
+      <WhyChooseUs />
+      <Card />
+      <GrainLength />
       <Precence />
       <WorkingProcess />
-      <Contact/>
+
+      {/* Contact Section with ref */}
+      <div ref={contactRef}>
+        <Contact />
+      </div>
     </div>
   );
 };
