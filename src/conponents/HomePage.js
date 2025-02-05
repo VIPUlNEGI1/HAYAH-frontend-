@@ -1,10 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image"; // Next.js optimized image loading
+
 import CardSection from "./Card";
 import Precence from "./Precence";
-import Contact from "./Connect";
+import Contact from "./Contact";
 import WorkingProcess from "./WorkingProcess";
+import { img } from "../assets copy/image";
+import Card from "./Card";
+import WhyChooseUs from "./WhychoseUs";
+import GrainLength from "./GainLength";
 
 // Framer Motion Variants (Slower Animation Speed)
 const fadeInUp = {
@@ -32,13 +36,14 @@ const HomePage = () => {
     <div>
       {/* Hero Section */}
       <motion.header
-        className="mt-16 relative w-full bg-cover bg-center py-16"
-        style={{ backgroundImage: `url('/images/riceImage.jpg')` }} // Use images from public folder
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
+  className="mt-28 relative w-full bg-cover bg-center py-16"
+  style={{ backgroundImage: `url(${img.riceImage})` }} // Fix background image
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={fadeInUp}
+>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center relative space-y-6 md:space-y-0">
           {/* Left Section */}
           <motion.div
@@ -53,14 +58,14 @@ const HomePage = () => {
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               <motion.button
-                className="bg-yellow-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-yellow-500 transition-all hover:text-black"
+                className="bg-yellow-800 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-yellow-900  hover:text-white"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
               >
                 Get In Touch
               </motion.button>
               <motion.button
-                className="bg-transparent border border-yellow-700 text-yellow-700 px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-yellow-800 hover:text-white transition-all"
+                className="bg-transparent border border-yellow-800 text-yellow-800 px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-md hover:bg-yellow-800 hover:text-white "
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
               >
@@ -70,10 +75,33 @@ const HomePage = () => {
           </motion.div>
         </div>
       </motion.header>
+      <motion.div
+        className="mt-36 text-center mb-11"
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
 
       {/* Stats Section */}
+    <div className="text-center mt-16 ">
+  {/* Title */}
+  <h1 className="text-2xl sm:text-4xl mt-6 lg:text-5xl font-extrabold text-gray-900 mb-4 tracking-wide flex justify-center items-center gap-2">
+    <img
+      src={img.leaveimage} // Update this path
+      alt="Decorative Icon"
+      className="w-8 h-8 inline-block"
+    />
+    WHO WE ARE
+  </h1>
+
+  {/* Description */}
+  <p className="text-base sm:text-lg lg:text-xl text-gray-600 font-medium mb-11">
+    Renowned Manufacturer, Supplier And Exporter Of Basmati And Non Basmati Rice
+  </p>
+</div>
       <motion.section
-        className="mt-16 bg-gray-100 py-8"
+        className=""
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -107,54 +135,51 @@ const HomePage = () => {
       </motion.section>
 
       {/* WHO WE ARE Section */}
-      <motion.div
-        className="mt-36 text-center mb-11"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <h1 className="text-3xl sm:text-4xl mt-6 lg:text-5xl font-extrabold text-gray-900 mb-8 tracking-wide">
-          WHO WE ARE
-        </h1>
-        <p className="text-base sm:text-lg lg:text-xl text-gray-600 font-medium mb-11">
-          Renowned Manufacturer, Supplier And Exporter Of Basmati And Non Basmati Rice
-        </p>
+     {/* Collaboration Image */}
+     <motion.div variants={fadeInRight} className="text-center mt-16">
+  {/* Collaboration Image */}
+  <img
+    src={img.collabration}
+    alt="Collaboration"
+    width={250}
+    height={100}
+    className="mx-auto rounded-lg"
+    style={{ filter: "brightness(0.95) contrast(1.1)" }}
+  />
 
-        {/* Certificates Image */}
-        <motion.div variants={fadeInUp}>
-          <Image
-            src="/images/certificates.jpg"
+  {/* Paragraph Description */}
+  <p className="text-base lg:text-xl text-gray-700 leading-relaxed mt-6 font-light px-4 sm:px-6 max-w-4xl mx-auto">
+    Founded in 2012 with Sagar Industries, specializing in rice mill infrastructure, we've equipped ~100 rice mills across India & Nepal, and shared our technology with leading brands. Building on this, our state-of-the-art rice mill, Mansi Overseas, has supplied top-quality rice to major Indian brands like Reliance and Dmart for the past five years. Now, leveraging decades of rice industry experience, AL HAYAH EXPORTS is committed to delivering unmatched quality and reliability to international partners. We uphold trust, transparency, and uncompromising standards, specializing in quality to build enduring partnerships and redefine global rice export excellence.
+  </p>
+</motion.div>
+
+
+    
+
+       
+        
+      </motion.div>
+            {/* Certificates Image */}
+            <motion.div variants={fadeInUp}>
+          <img
+            src={img.cirtificates}
             alt="Certificates"
             width={500}
             height={300}
-            className="mx-auto rounded-lg shadow-lg"
+            className="mx-auto py-11  "
           />
         </motion.div>
-        
 
-        <p className="text-base lg:text-xl text-gray-700 leading-relaxed mb-8 font-light">
-          At AL HAYAH EXPORTS, we embarked on a mission with a clear and compelling vision...
-        </p>
-
-        {/* Collaboration Image */}
-        <motion.div variants={fadeInRight}>
-          <Image
-            src="/images/collaboration.jpg"
-            alt="Collaboration"
-            width={500}
-            height={300}
-            className="mt-16 mx-auto rounded-lg"
-            style={{ filter: "brightness(0.95) contrast(1.1)" }}
-          />
-        </motion.div>
-      </motion.div>
+<WhyChooseUs/>
 
       {/* Animated Sections */}
-      <CardSection />
+     <Card/>
+
+    <GrainLength/>
+
       <Precence />
       <WorkingProcess />
-      <Contact />
+      <Contact/>
     </div>
   );
 };

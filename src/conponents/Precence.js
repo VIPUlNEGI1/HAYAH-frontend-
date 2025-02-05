@@ -27,36 +27,49 @@ const CardSection = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
-        <motion.h2 className="text-3xl font-extrabold text-[#4B4E6D] mb-6 text-center" variants={fadeInUp}>
-          Our Production Process
-        </motion.h2>
-        <motion.p className="text-lg text-center text-gray-600 mb-8" variants={fadeInUp}>
-          From cultivation to distribution, our rice undergoes a meticulous process to ensure unmatched quality and taste.
-        </motion.p>
+       <motion.div className="flex items-center justify-center gap-2 mb-6" variants={fadeInUp}>
+  <img
+    src={img.leaveimage}// Replace with the correct path to the image
+    alt="Production Process Icon"
+    className="w-6 h-6 sm:w-8 sm:h-8"
+  />
+  <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#4B4E6D] text-center">
+    Production Process
+  </h2>
+</motion.div>
+<motion.p
+  className="text-sm sm:text-base md:text-lg text-center text-gray-600 mb-8"
+  variants={fadeInUp}
+>
+  From cultivation to distribution, our rice undergoes a meticulous process to
+  ensure unmatched quality and taste.
+</motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {[  
-            { title: 'Cultivation', description: 'Farmers cultivate rice in fertile fields, primarily in waterlogged areas, where the crop thrives under specific conditions.' },
-            { title: 'Harvesting', description: 'Once the rice plants mature, they are harvested using traditional methods or modern machinery. The harvested rice is called paddy.' },
-            { title: 'Threshing', description: 'The harvested paddy is threshed to separate the grains from the stalks. This can be done manually or using mechanical threshers.' },
-            { title: 'Drying', description: 'The grains are dried to reduce their moisture content, ensuring longer shelf life and preventing spoilage.' },
-            { title: 'Cleaning', description: 'The dried paddy is cleaned to remove impurities like stones, husks, and other debris.' },
-            { title: 'Dehusking', description: 'The outer husk of the rice grain is removed through hulling machines, leaving behind brown rice.' },
-            { title: 'Polishing/Milling', description: 'The brown rice is further processed to remove the bran layer, resulting in white rice with a smooth texture.' },
-            { title: 'Sorting & Grading', description: 'The milled rice is sorted and graded based on size, quality, and type, separating broken or inferior grains.' },
-            { title: 'Quality Testing', description: 'The final product is tested to ensure it is airtight, tamper-proof, and maintains freshness.' },
-            { title: 'Packaging & Distribution', description: 'The rice is packed in high-quality bags and transported to distributors and consumers worldwide.' },
-          ].map((step, index) => (
-            <motion.div
-              key={index}
-              className="p-4 bg-white rounded-lg shadow-lg text-center hover:shadow-xl transition duration-300"
-              variants={fadeInUp}
-            >
-              <h3 className="text-lg font-bold text-[#4B4E6D] mb-2">{step.title}</h3>
-              <p className="text-sm text-gray-600">{step.description}</p>
-            </motion.div>
-          ))}
-        </div>
+       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  {[
+    { title: "Cultivation", description: "Farmers cultivate rice in fertile fields, primarily in waterlogged areas, where the crop thrives under specific conditions." },
+    { title: "Harvesting", description: "Once the rice plants mature, they are harvested using traditional methods or modern machinery. The harvested rice is called paddy." },
+    { title: "Threshing", description: "The harvested paddy is threshed to separate the grains from the stalks. This can be done manually or using mechanical threshers." },
+    { title: "Drying", description: "The grains are dried to reduce their moisture content, ensuring longer shelf life and preventing spoilage." },
+    { title: "Cleaning", description: "The dried paddy is cleaned to remove impurities like stones, husks, and other debris." },
+    { title: "Dehusking", description: "The outer husk of the rice grain is removed through hulling machines, leaving behind brown rice." },
+    { title: "Polishing/Milling", description: "The brown rice is further processed to remove the bran layer, resulting in white rice with a smooth texture." },
+    { title: "Sorting & Grading", description: "The milled rice is sorted and graded based on size, quality, and type, separating broken or inferior grains." },
+    { title: "Quality Testing", description: "The final product is tested to ensure it is airtight, tamper-proof, and maintains freshness." },
+    { title: "Packaging & Distribution", description: "The rice is packed in high-quality bags and transported to distributors and consumers worldwide." },
+  ].map((step, index) => (
+    <div
+      key={index}
+      className="p-4 bg-white rounded-lg shadow-lg text-center hover:shadow-xl transition duration-300"
+    >
+      <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#4B4E6D] mb-2">
+        {step.title}
+      </h3>
+      <p className="text-xs sm:text-sm text-gray-600">{step.description}</p>
+    </div>
+  ))}
+</div>
+
       </motion.section>
 
       {/* Global Reach Section */}
@@ -67,9 +80,23 @@ const CardSection = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
-        <motion.h2 className="text-3xl font-extrabold text-[#4B4E6D] mb-6 text-center" variants={fadeInUp}>
-          Our Global Presence
-        </motion.h2>
+        <motion.div
+  className="flex items-center justify-center gap-3 mb-6"
+  variants={fadeInUp}
+>
+<div className="flex items-center justify-center gap-3 mb-6">
+  <img
+    src={img.leaveimage} // Replace with the correct path to the image
+    alt="Global Presence Icon"
+    className="w-5 h-5 sm:w-6 sm:h-6"
+  />
+  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold text-[#4B4E6D] text-center">
+    Our Global Presence
+  </h2>
+</div>
+
+</motion.div>
+
         <motion.p className="text-lg text-center text-gray-600 mb-8" variants={fadeInUp}>
           Explore our global footprint as we deliver premium rice products to customers worldwide.
         </motion.p>

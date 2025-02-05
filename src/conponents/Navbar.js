@@ -35,7 +35,7 @@ const Navbar = () => {
                 className="relative text-gray-800 hover:text-yellow-700 transition duration-300"
               >
                 {item}
-                <span className="absolute w-0 h-[2px] bg-yellow-700 left-0 bottom-0 transition-all duration-300 hover:w-full"></span>
+                <span className="absolute w-0 h-[2px] bg-yellow-800 left-0 bottom-0 transition-all duration-300 hover:w-full"></span>
               </Link>
             </li>
           ))}
@@ -52,13 +52,13 @@ const Navbar = () => {
       <img
   src={img.watsublogo}
   alt="WhatsApp Icon"
-  className="w-12 sm:w-16 md:w-20 lg:w-18 h-auto object-contain transition-transform duration-300 hover:scale-1"
+  className="w-12 sm:w-16 md:w-20 lg:w-18 h-auto object-contain transition-transform duration-300 "
 />
 
           </a>
           <Link
             to="/contact"
-            className="bg-yellow-700 text-white px-4 py-2 rounded-md shadow-md hover:bg-yellow-800 transition duration-300 text-sm md:text-base"
+            className="bg-yellow-800 text-white px-4 py-2 rounded-md shadow-md hover:bg-yellow-900 transition duration-300 text-sm md:text-base"
           >
             Contact Us
           </Link>
@@ -170,7 +170,7 @@ const Navbar = () => {
                 >
                   <Link
                     to="/contact"
-                    className="bg-yellow-700 text-white px-6 py-2 rounded-md shadow-md hover:bg-yellow-800 transition duration-300 text-sm"
+                    className="bg-yellow-900 text-white px-6 py-2 rounded-md shadow-md hover:bg-yellow-700 transition duration-300 text-sm"
                     onClick={toggleMenu}
                   >
                     Contact Us

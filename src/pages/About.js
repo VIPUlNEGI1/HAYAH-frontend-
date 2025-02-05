@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image"; // Next.js optimized image loading
+
 import { img } from "../assets copy/image";
 
 // import aboutImage from "/images/about-us.jpg"; // Ensure image is placed in `/public/images/`
@@ -35,7 +35,7 @@ const About = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0, transition: { duration: 1.2, ease: "easeOut" } }}
         >
-          <Image
+          <img
             src={img.factory}
             alt="About Hayah Foods"
             width={600}

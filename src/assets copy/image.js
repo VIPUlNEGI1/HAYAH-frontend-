@@ -18,6 +18,7 @@ import production from "./Image-folder/production.png";
 
 import map from "./Image-folder/map.png";
 
+import bgimage from "./Image-folder/Vector 3.png"
 import icon from "./Image-folder/Group 2.png";
 import icon2 from "./Image-folder/Group 3.png";
 import icon3 from "./Image-folder/Group 4.png";
@@ -31,9 +32,16 @@ import facebook from "./Image-folder/facebook.png";
 import instagram from "./Image-folder/insta.png";
 import wathapp from "./Image-folder/Watsupp.png";
 import farmerBackground from "./Image-folder/farmer-background.jpg";
-
-
+import leaveimage from "./Image-folder/leaveimage.png";
+import riceseed from "./Image-folder/Group 2500.png";
+import misson from "./Image-folder/mission 1.png";
+import vision from "./Image-folder/vision 1.png";
 export const img = {
+    bgimage,
+    vision,
+    misson,
+    riceseed,
+    leaveimage,
     farmerBackground,
     production,
     facebook,

@@ -15,7 +15,7 @@ const staggerContainer = {
   visible: { transition: { staggerChildren: 0.3 } }, // Cards appear one by one
 };
 
-const CardSection = () => {
+const Card = () => {
   const navigate = useNavigate();
 
   const products = [
@@ -50,12 +50,23 @@ const CardSection = () => {
       viewport={{ once: true, amount: 0.2 }}
       variants={staggerContainer}
     >
-      <motion.h2
-        className="text-3xl font-extrabold text-[#4B4E6D] mb-4 text-center"
-        variants={fadeInUp}
-      >
-        Our Products
-      </motion.h2>
+  <motion.div
+  className="flex justify-center items-center gap-3 mb-4 text-center"
+  variants={fadeInUp}
+>
+  {/* Image/Logo */}
+  <img
+    src={img.leaveimage} // Update this path to your logo/image
+    alt="Our Products Logo"
+    className="w-8 h-8 sm:w-10 sm:h-10"
+  />
+
+  {/* Heading */}
+  <h2 className="text-3xl font-extrabold text-[#4B4E6D]">
+    Our Products
+  </h2>
+</motion.div>
+
       <motion.p
         className="text-lg text-gray-600 mb-6 text-center"
         variants={fadeInUp}
@@ -95,4 +106,4 @@ const CardSection = () => {
   );
 };
 
-export default CardSection;
+export default Card;

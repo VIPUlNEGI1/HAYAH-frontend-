@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-// import mailIcon from '../assets copy/image/mail.pmg';
-// import callIcon from "../assets/Image-folder/call.png";
-// import locationIcon from '../assets/Image-folder/location.png';
-// import factoryImage from '../assets/Image-folder/factory.png';
+
 import { img } from '../assets copy/image';
 
 const Contact = () => {
@@ -63,8 +60,8 @@ const Contact = () => {
 {/* Contact Info Section */}
 <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center mx-auto max-w-5xl px-5">
   {[
-    { icon: img.mailIcon, title: "Write to Us", text: "ankushdahiya222@gmail.com" },
-    { icon: img.callIcon, title: "Call Us", text: "+91 9998442528" },
+    { icon: img.mail, title: "Write to Us", text: "ankushdahiya222@gmail.com" },
+    { icon: img.phone, title: "Call Us", text: "+91 9998442528" },
     { icon: img.location, title: "Address", text: "Vill. Ganger, Taraori-Karnal, 132112" },
   ].map((info, index) => (
     <div 
@@ -96,9 +93,10 @@ const Contact = () => {
   
   {/* Form Container */}
   <div className="w-full lg:w-5/12 bg-white bg-opacity-90 backdrop-blur-lg p-5 sm:p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition duration-300">
-    <h2 className="text-xl sm:text-2xl font-bold mb-4 text-[#4B4E6D] text-center sm:text-left">
-      Leave Our Team A Message
-    </h2>
+  <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-[#4B4E6D] text-center sm:text-left">
+  Leave Our Team A Message
+</h2>
+
 
     {/* Success/Error Message */}
     {responseMessage && <p className="text-lg text-center mb-4">{responseMessage}</p>}
