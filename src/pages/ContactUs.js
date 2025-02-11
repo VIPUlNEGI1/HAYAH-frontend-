@@ -8,7 +8,7 @@ const fadeIn = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
-const BulkOrderEnquiry = () => {
+const contactUs = () => {
   return (
     <div className="p-6 mt-10">
       {/* Building Partnerships Section */}
@@ -146,4 +146,4 @@ const BulkOrderEnquiry = () => {
   );
 };
 
-export default BulkOrderEnquiry;
+export default contactUs;

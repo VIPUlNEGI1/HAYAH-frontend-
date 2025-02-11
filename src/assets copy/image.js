@@ -46,8 +46,37 @@ import cirtificate6 from "./Image-folder/image 13.png"
 import cirtificate7 from "./Image-folder/image 14.png"
 import cirtificate8 from "./Image-folder/image 15.png"
 
+
+import rice1 from "./Image-folder/rice1.jpg";
+import rice2 from "./Image-folder/rice2.jpg";
+import rice3 from "./Image-folder/rice3.jpg";
+import rice4 from "./Image-folder/rice4.jpg";
+import rice5 from "./Image-folder/rice5.jpg";
+import rice6 from "./Image-folder/rice6.jpg";
+import rice7 from "./Image-folder/rice7.jpg";
+import rice8 from "./Image-folder/rice8.jpg";
+import rice9 from "./Image-folder/rice9.jpg";
+import rice10 from "./Image-folder/rice10.jpg";
+import rice11 from "./Image-folder/rice11.jpg";
+import rice12 from "./Image-folder/rice12.jpg";
+import rice13 from "./Image-folder/rice13.jpg"
 import OPI from "./Image-folder/OIP.jpg"
 export const img = {
+
+rice1,
+rice2,
+rice3,
+rice4,
+rice5,
+rice6,
+rice7,
+rice8,
+rice9,
+rice10,
+rice11,
+rice12,
+rice13,
+
 
     OPI,
 cirtificate1,

@@ -1,27 +1,26 @@
-import React, { useState } from 'react';
-import { img } from '../assets copy/image';
-
+import React, { useState } from "react";
+import { img } from "../assets copy/image";
 
 const InquiryForm = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    countryCode: '+91',
-    country: '',
-    state: '',
-    companyName: '',
-    website: '',
-    businessType: '',
+    fullName: "",
+    email: "",
+    phone: "",
+    countryCode: "+91",
+    country: "",
+    state: "",
+    companyName: "",
+    website: "",
+    businessType: "",
     productOfInterest: [],
-    orderQuantity: '',
-    yourBrand: '',
-    packagingDetails: '',
-    destinationPort: '',
-    inquiry: '',
+    orderQuantity: "",
+    yourBrand: "",
+    packagingDetails: "",
+    destinationPort: "",
+    inquiry: "",
   });
 
-  const [responseMessage, setResponseMessage] = useState('');
+  const [responseMessage, setResponseMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleCheckboxChange = (e) => {
@@ -42,48 +41,47 @@ const InquiryForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setResponseMessage('');
+    setResponseMessage("");
 
     try {
-      const response = await fetch('http://localhost:5000/api/inquiry', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch("http://localhost:5000/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
       if (response.ok) {
-        setResponseMessage('Your inquiry has been submitted successfully!');
+        setResponseMessage("✅ Your inquiry has been submitted successfully!");
         setFormData({
-          fullName: '',
-          email: '',
-          phone: '',
-          countryCode: '+91',
-          country: '',
-          state: '',
-          companyName: '',
-          website: '',
-          businessType: '',
+          fullName: "",
+          email: "",
+          phone: "",
+          countryCode: "+91",
+          country: "",
+          state: "",
+          companyName: "",
+          website: "",
+          businessType: "",
           productOfInterest: [],
-          orderQuantity: '',
-          yourBrand: '',
-          packagingDetails: '',
-          destinationPort: '',
-          inquiry: '',
+          orderQuantity: "",
+          yourBrand: "",
+          packagingDetails: "",
+          destinationPort: "",
+          inquiry: "",
         });
       } else {
-        setResponseMessage('There was an error. Please try again.');
+        setResponseMessage("❌ There was an error. Please try again.");
       }
     } catch (error) {
-      setResponseMessage('Failed to submit inquiry. Please check your connection.');
+      setResponseMessage("⚠️ Failed to submit inquiry. Please check your connection.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className=" mt-36 min-h-screen bg-gradient-to-b from-[#f7f5f368] to-[#fcf4e4c2] py-12 px-4">
+    <div className="mt-20 min-h-screen bg-gradient-to-b from-gray-100 to-gray-50 py-12 px-4">
       {/* Header Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-[#4B4E6D] mb-4">Bulk Order Inquiry</h1>
@@ -91,90 +89,57 @@ const InquiryForm = () => {
       </div>
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        {/* Form Section */}
-        <div className="bg-white p-4 md:p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold text-[#4B4E6D] mb-4">Submit Your Inquiry</h2>
-          {responseMessage && <p className="text-center text-green-600 mb-4 font-semibold text-sm">{responseMessage}</p>}
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div>
-                <label className="block mb-1 text-sm font-medium text-gray-700">Full Name*</label>
-                <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className="w-full p-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#4B4E6D]" required />
-              </div>
-              <div>
-                <label className="block mb-1 text-sm font-medium text-gray-700">Email*</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full p-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#4B4E6D]" required />
-              </div>
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold text-gray-700 mb-4">Submit Your Inquiry</h2>
+          {responseMessage && <p className="text-center text-green-600 mb-4 font-semibold">{responseMessage}</p>}
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} placeholder="Full Name*" className="w-full p-2 border rounded-lg" required />
+              <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email*" className="w-full p-2 border rounded-lg" required />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div>
-                <label className="block mb-1 text-sm font-medium text-gray-700">Phone Number*</label>
-                <div className="flex items-center gap-2">
-                  <select name="countryCode" value={formData.countryCode} onChange={handleChange} className="p-2 border rounded-lg text-sm">
-                    <option value="+91">+91</option>
-                    <option value="+1">+1</option>
-                    <option value="+44">+44</option>
-                  </select>
-                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full p-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#4B4E6D]" required />
-                </div>
-              </div>
-              <div>
-                <label className="block mb-1 text-sm font-medium text-gray-700">Country*</label>
-                <input type="text" name="country" value={formData.country} onChange={handleChange} className="w-full p-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#4B4E6D]" required />
-              </div>
-              <div>
-                <label className="block mb-1 text-sm font-medium text-gray-700">State*</label>
-                <input type="text" name="state" value={formData.state} onChange={handleChange} className="w-full p-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#4B4E6D]" required />
-              </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <select name="countryCode" value={formData.countryCode} onChange={handleChange} className="p-2 border rounded-lg">
+                <option value="+91">+91</option>
+                <option value="+1">+1</option>
+                <option value="+44">+44</option>
+              </select>
+              <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone Number*" className="w-full p-2 border rounded-lg" required />
+              <input type="text" name="country" value={formData.country} onChange={handleChange} placeholder="Country*" className="w-full p-2 border rounded-lg" required />
             </div>
-            <div className="grid grid-cols-1 gap-3">
-              <div>
-                <label className="block mb-1 text-sm font-medium text-gray-700">Your Business Type*</label>
-                <input type="text" name="businessType" value={formData.businessType} onChange={handleChange} className="w-full p-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#4B4E6D]" required />
-              </div>
-              <div>
-                <label className="block mb-1 text-sm font-medium text-gray-700">Product of Interest*</label>
-                <div className="flex flex-wrap gap-2 mt-1">
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" value="Basmati Rice" onChange={handleCheckboxChange} />
-                    <span className="text-sm">Basmati Rice</span>
+
+            <input type="text" name="state" value={formData.state} onChange={handleChange} placeholder="State" className="w-full p-2 border rounded-lg" />
+            <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} placeholder="Company Name" className="w-full p-2 border rounded-lg" />
+            <input type="text" name="website" value={formData.website} onChange={handleChange} placeholder="Website" className="w-full p-2 border rounded-lg" />
+            <input type="text" name="businessType" value={formData.businessType} onChange={handleChange} placeholder="Business Type*" className="w-full p-2 border rounded-lg" required />
+
+            <div>
+              <p className="text-gray-700 mb-2">Product of Interest*</p>
+              <div className="flex flex-wrap gap-2">
+                {["Basmati Rice", "Non-Basmati Rice", "Pesticide Free Rice"].map((product) => (
+                  <label key={product} className="flex items-center gap-2">
+                    <input type="checkbox" value={product} onChange={handleCheckboxChange} checked={formData.productOfInterest.includes(product)} />
+                    <span>{product}</span>
                   </label>
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" value="Non-Basmati Rice" onChange={handleCheckboxChange} />
-                    <span className="text-sm">Non-Basmati Rice</span>
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" value="Pesticide Free Rice" onChange={handleCheckboxChange} />
-                    <span className="text-sm">Pesticide Free Rice</span>
-                  </label>
-                </div>
+                ))}
               </div>
             </div>
-            <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">Order Quantity*</label>
-              <input type="text" name="orderQuantity" value={formData.orderQuantity} onChange={handleChange} className="w-full p-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#4B4E6D]" required />
-            </div>
-            <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">Packaging Details*</label>
-              <textarea name="packagingDetails" value={formData.packagingDetails} onChange={handleChange} rows="3" className="w-full p-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#4B4E6D]" required></textarea>
-            </div>
-            <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">Destination Port*</label>
-              <input type="text" name="destinationPort" value={formData.destinationPort} onChange={handleChange} className="w-full p-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#4B4E6D]" required />
-            </div>
-            <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">Inquiry*</label>
-              <textarea name="inquiry" value={formData.inquiry} onChange={handleChange} rows="4" className="w-full p-2 border rounded-lg text-sm focus:ring-2 focus:ring-[#4B4E6D]" required></textarea>
-            </div>
-            <button type="submit" className="w-full bg-[#7f4d1d] text-white py-2 rounded-lg text-sm hover:bg-[#5f3a17] transition-all" disabled={loading}>
-              {loading ? 'Submitting...' : 'Submit Inquiry'}
+
+            <input type="text" name="orderQuantity" value={formData.orderQuantity} onChange={handleChange} placeholder="Order Quantity*" className="w-full p-2 border rounded-lg" required />
+            <input type="text" name="yourBrand" value={formData.yourBrand} onChange={handleChange} placeholder="Your Brand" className="w-full p-2 border rounded-lg" />
+            <textarea name="packagingDetails" value={formData.packagingDetails} onChange={handleChange} rows="3" placeholder="Packaging Details*" className="w-full p-2 border rounded-lg" required></textarea>
+            <input type="text" name="destinationPort" value={formData.destinationPort} onChange={handleChange} placeholder="Destination Port*" className="w-full p-2 border rounded-lg" required />
+            <textarea name="inquiry" value={formData.inquiry} onChange={handleChange} rows="4" placeholder="Additional Inquiry*" className="w-full p-2 border rounded-lg" required></textarea>
+
+            <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition" disabled={loading}>
+              {loading ? "Submitting..." : "Submit Inquiry"}
             </button>
           </form>
         </div>
 
-        {/* Image Section */}
-        <div className="overflow-hidden rounded-xl shadow-lg">
-          <img src={img.production} alt="Factory" className="w-full h-auto object-cover" />
+        <div className="overflow-hidden rounded-lg shadow-lg">
+          <img src={img.factory} alt="Factory" className="w-full h-auto object-cover" />
         </div>
       </div>
     </div>

@@ -9,17 +9,17 @@ const fadeInUp = {
 
 const SeeMoreProduct = () => {
   const premiumBasmati = [
-    { image: "path-to-image1.jpg", title: "1121 Steamed Basmati Rice", description: "Extra-long grains, ideal for biryanis." },
-    { image: "path-to-image2.jpg", title: "1401 Sella Basmati Rice", description: "Golden-hued rice, perfect for pilafs and special occasions." },
-    { image: "path-to-image3.jpg", title: "1718 Steamed Basmati Rice", description: "Aromatic variety with a soft texture, great for daily use." },
-    { image: "path-to-image4.jpg", title: "PUSA Steamed Basmati Rice", description: "Shorter grains with a traditional aroma, ideal for quick recipes." },
+    { image: img.rice1, title: "1121 Steamed Basmati Rice", description: "Extra-long grains, ideal for biryanis." },
+    { image: img.rice2, title: "1401 Sella Basmati Rice", description: "Golden-hued rice, perfect for pilafs and special occasions." },
+    { image: img.rice3, title: "1718 Steamed Basmati Rice", description: "Aromatic variety with a soft texture, great for daily use." },
+    { image: img.rice4, title: "PUSA Steamed Basmati Rice", description: "Shorter grains with a traditional aroma, ideal for quick recipes." },
   ];
 
   const nonBasmati = [
-    { image: "path-to-image5.jpg", title: "PR 11 Non-Basmati Rice", description: "Known for its soft texture, ideal for daily meals and festive dishes." },
-    { image: "path-to-image6.jpg", title: "PR 14 Non-Basmati Rice", description: "Offers long grains and a delightful aroma, perfect for gourmet cooking." },
-    { image: "path-to-image7.jpg", title: "Parmal Non-Basmati Rice", description: "Medium-grain rice with a soft texture, suitable for everyday cooking." },
-    { image: "path-to-image8.jpg", title: "Sugandha Non-Basmati Rice", description: "Naturally aromatic, with long grains and rich flavor, great for biryanis and pilafs." },
+    { image: img.rice5, title: "PR 11 Non-Basmati Rice", description: "Known for its soft texture, ideal for daily meals and festive dishes." },
+    { image: img.rice6, title: "PR 14 Non-Basmati Rice", description: "Offers long grains and a delightful aroma, perfect for gourmet cooking." },
+    { image: img.rice7, title: "Parmal Non-Basmati Rice", description: "Medium-grain rice with a soft texture, suitable for everyday cooking." },
+    { image: img.rice8, title: "Sugandha Non-Basmati Rice", description: "Naturally aromatic, with long grains and rich flavor, great for biryanis and pilafs." },
   ];
 
   return (

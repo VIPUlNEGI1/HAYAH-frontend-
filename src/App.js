@@ -7,22 +7,24 @@ import BulkOrderEnquiry from "./pages/BulkOrderEnquiry";
 import ContactUs from "./pages/ContactUs";
 import HomePage from "./conponents/HomePage";
 import Footer from "./conponents/Footer";
+import AdminPage from "./pages/Admin"; // Import the Admin Page
 
 const App = () => {
   return (
     <Router>
       <Navbar />
-   
+
       <div style={{ padding: "20px" }}>
         <Routes>
           <Route path="/about" element={<About />} />
           <Route path="/product" element={<Product />} />
           <Route path="/bulk-order-enquiry" element={<BulkOrderEnquiry />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/admin" element={<AdminPage />} /> {/* Admin Page Route */}
           <Route path="/" element={<HomePage />} />
- 
         </Routes>
       </div>
+
       <Footer />
     </Router>
   );
