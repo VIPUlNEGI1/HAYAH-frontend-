@@ -36,7 +36,7 @@ const Contact = () => {
 
   //  this is the major change for me *********************
     
-  const response = await fetch(`${API_BASE_URL}/contact`, {
+  const response = await fetch("https://haryah-backend.vercel.app/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
