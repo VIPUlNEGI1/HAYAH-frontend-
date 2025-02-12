@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as XLSX from "xlsx";
 
-const API_BASE_URL = "http://localhost:5000/api"; // Store base URL here
+const API_BASE_URL = "https://haryah-backend.vercel.app/api"; // Store base URL here
 
 const AdminPage = () => {
   const [inquiries, setInquiries] = useState([]);

@@ -44,7 +44,7 @@ const InquiryForm = () => {
     setResponseMessage("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/inquiry", {
+      const response = await fetch("https://haryah-backend.vercel.app/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
