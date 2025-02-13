@@ -5,25 +5,9 @@ import { img } from "../assets copy/image";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showAdminLogin, setShowAdminLogin] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-
-  const ADMIN_EMAIL = "99vipul88@gmail.com";
-  const ADMIN_PASSWORD = "7983922210";
-
+  
   const toggleMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
-  };
-
-  const handleAdminLogin = (e) => {
-    e.preventDefault();
-    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-      navigate("/admin");
-    } else {
-      alert("Invalid credentials! Only the admin can access this page.");
-    }
   };
 
   return (
@@ -54,12 +38,6 @@ const Navbar = () => {
             <Link to="/bulk-order-enquiry" className="relative text-gray-800 hover:text-yellow-700 transition duration-300">
               Bulk Order Enquiry
             </Link>
-          </li>
-          <li>
-
-          <Link onClick={() => setShowAdminLogin(true)} className="relative text-gray-800 hover:bg-slate-300 transition duration-300">
-            Admin
-        </Link>
           </li>
         </ul>
 
@@ -92,27 +70,10 @@ const Navbar = () => {
               <li><Link to="/product" onClick={toggleMenu}>Products</Link></li>
               <li><Link to="/bulk-order-enquiry" onClick={toggleMenu}>Bulk Order Enquiry</Link></li>
               <li><Link to="/contact-us" onClick={toggleMenu}>Contact Us</Link></li>
-              <li><Link to="/admin" onClick={toggleMenu}>Admin</Link></li>
             </ul>
           </motion.div>
         )}
       </AnimatePresence>
-
-      {showAdminLogin && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h2 className="text-lg font-semibold mb-4">Admin Login</h2>
-            <form onSubmit={handleAdminLogin} className="space-y-4">
-              <input type="email" placeholder="Admin Email" className="w-full p-2 border rounded" value={email} onChange={(e) => setEmail(e.target.value)} required />
-              <input type="password" placeholder="Password" className="w-full p-2 border rounded" value={password} onChange={(e) => setPassword(e.target.value)} required />
-              <div className="flex justify-between">
-                <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-700">Login</button>
-                <button type="button" onClick={() => setShowAdminLogin(false)} className="bg-gray-600 text-white px-4 py-2 rounded-md shadow-md hover:bg-gray-700">Cancel</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </nav>
   );
 };
