@@ -8,7 +8,7 @@ import ContactUs from "./pages/ContactUs";
 import HomePage from "./conponents/HomePage";
 import Footer from "./conponents/Footer";
 import AdminPage from "./pages/Admin"; // Import the Admin Page
-
+import BasmatiRice from "./conponents/Basmati";
 const App = () => {
   return (
     <Router>
@@ -22,6 +22,8 @@ const App = () => {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/admin" element={<AdminPage />} /> {/* Admin Page Route */}
           <Route path="/" element={<HomePage />} />
+<Route path="/Basmiti" element={<BasmatiRice/>} /> 
+  
         </Routes>
       </div>
 
