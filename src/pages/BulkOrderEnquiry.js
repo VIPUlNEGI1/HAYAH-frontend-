@@ -81,15 +81,15 @@ const InquiryForm = () => {
   };
 
   return (
-    <div className="mt-20 min-h-screen bg-gradient-to-b from-gray-100 to-gray-50 py-12 px-4">
+    <div className="mt-32 min-h-screen bg-gradient-to-b from-gray-100 to-gray-50 ">
       {/* Header Section */}
-      <div className="text-center mb-12">
+      <div className="text-center mt-12  px-3 py-7">
         <h1 className="text-4xl font-bold text-[#4B4E6D] mb-4">Bulk Order Inquiry</h1>
         <p className="text-base text-gray-600">Let us know your requirements and we’ll get back to you shortly.</p>
       </div>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="max-w-5xl mx-auto mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="bg-white p-6  shadow-md">
           <h2 className="text-xl font-semibold text-gray-700 mb-4">Submit Your Inquiry</h2>
           {responseMessage && <p className="text-center text-green-600 mb-4 font-semibold">{responseMessage}</p>}
 
@@ -138,9 +138,9 @@ const InquiryForm = () => {
           </form>
         </div>
 
-        <div className="overflow-hidden rounded-lg shadow-lg">
-          <img src={img.factory} alt="Factory" className="w-full h-auto object-cover" />
-        </div>
+      <div className="overflow-hidden rounded-lg shadow-lg hidden sm:block">
+  <img src={img.factory} alt="Factory" className="w-full h-auto object-cover" />
+</div>
       </div>
     </div>
   );
