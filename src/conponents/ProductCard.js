@@ -16,7 +16,7 @@ const ProductCard = ({ title, description, img, productData }) => {
       <p className="text-sm text-gray-600 mb-4 text-center">{description}</p>
       <div className="text-center">
         <Link
-          to="/learn-more"
+          to="/Basmiti"
           state={{ product: productData }}
           className="bg-[#7f672fd6] text-white font-semibold py-2 px-4 rounded-lg hover:bg-[#7c6c56b2] transition"
         >
