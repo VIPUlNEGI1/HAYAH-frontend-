@@ -68,48 +68,48 @@ const Contact = () => {
 
 
   return (
-    <motion.div
-      className="mt-16 min-h-screen bg-gradient-to-b from-[#f1fde26f] to-white text-gray-800"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={fadeInUp}
-    >
-      {/* Form Section */}
-      <motion.div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-10 px-4 sm:px-8 lg:px-16 pb-10" variants={fadeInUp}>
-        <motion.div className="w-full lg:w-5/12 bg-white p-5 sm:p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition duration-300">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-[#4B4E6D] text-center sm:text-left">
-            Leave Our Team A Message
-          </h2>
+     <motion.div
+  className="mt-16 min-h-screen bg-gradient-to-b from-[#f1fde26f] to-white text-gray-800"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeInUp}
+>
+  {/* Form Section */}
+  <motion.div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-10 px-4 sm:px-8 lg:px-16 pb-10" variants={fadeInUp}>
+    <motion.div className="w-full lg:w-5/12 bg-white p-5 sm:p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition duration-300">
+      <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-[#4B4E6D] text-center sm:text-left">
+        Leave Our Team A Message
+      </h2>
 
-          {responseMessage && <motion.p className="text-lg text-center mb-4">{responseMessage}</motion.p>}
+      {responseMessage && <motion.p className="text-lg text-center mb-4">{responseMessage}</motion.p>}
 
-          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-5">
-            {["fullName", "email", "phone", "country", "message"].map((field, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <label className="block text-gray-700 font-medium mb-1 capitalize">{field}</label>
-                <input
-                  type={field === "email" ? "email" : field === "phone" ? "tel" : "text"}
-                  name={field}
-                  value={formData[field]}
-                  onChange={handleChange}
-                  required
-                  className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-orange-300 transition-all"
-                />
-              </motion.div>
-            ))}
+      <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-5">
+        {["fullName", "email", "phone", "country", "message"].map((field, index) => (
+          <motion.div key={index} variants={fadeInUp}>
+            <label className="block text-gray-700 font-medium mb-1 capitalize">{field}</label>
+            <input
+              type={field === "email" ? "email" : field === "phone" ? "tel" : "text"}
+              name={field}
+              value={formData[field]}
+              onChange={handleChange}
+              required
+              className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-orange-300 transition-all"
+            />
+          </motion.div>
+        ))}
 
-            <motion.button type="submit" className="w-full bg-[#7f4d1d] text-white py-2 sm:py-3 rounded-lg transition text-lg font-semibold">
-              {loading ? "Submitting..." : "Submit"}
-            </motion.button>
-          </form>
-        </motion.div>
-
-        <motion.div className="w-full lg:w-7/12">
-          <img src={factoryImage} alt="Factory" className="w-full rounded-lg shadow-lg" />
-        </motion.div>
-      </motion.div>
+        <motion.button type="submit" className="w-full bg-[#7f4d1d] text-white py-2 sm:py-3 rounded-lg transition text-lg font-semibold">
+          {loading ? "Submitting..." : "Submit"}
+        </motion.button>
+      </form>
     </motion.div>
+
+    <motion.div className="w-full lg:w-7/12 hidden sm:block">
+      <img src={factoryImage} alt="Factory" className="w-full rounded-lg shadow-lg" />
+    </motion.div>
+  </motion.div>
+</motion.div>
   );
 };
 
