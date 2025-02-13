@@ -23,25 +23,26 @@ const SeeMoreProduct = () => {
   ];
 
   return (
-    <motion.div className="px-6 py-10 mt-20" initial="hidden" animate="visible" variants={fadeInUp}>
-      <motion.div className="shadow-md overflow-hidden" variants={fadeInUp}>
+    <motion.div className="mt-32" initial="hidden" animate="visible" variants={fadeInUp}>
+      <motion.div className="shadow-md overflow-hidden w-full sm:w-auto" variants={fadeInUp}>
         <motion.img src={img.riceImage} alt="Terraced Fields" className="w-full h-64 object-cover" variants={fadeInUp} />
-        <motion.div className="p-8 text-center" variants={fadeInUp}>
-          <h1 className="mt-8 text-3xl sm:text-4xl font-bold text-gray-800 mb-2"> Global Grain Pioneers</h1>
-          <p className="text-sm sm:text-base text-gray-500">Crafted by Nature, Perfected by Tradition</p>
+        <motion.div className="p-8 sm:p-0 text-center" variants={fadeInUp}>
+        <h1 className="mt-8 text-4xl sm:text-lg font-bold text-gray-800 mb-2">Global Grain Pioneers</h1>
+
+          <p className="text-sm sm:text-xs text-gray-500 pb-6">Crafted by Nature, Perfected by Tradition</p>
         </motion.div>
       </motion.div>
 
       {/* Premium Basmati Rice Collection */}
       <motion.div className="mb-16 mt-20" variants={fadeInUp}>
-        <h2 className="text-2xl font-bold text-gray-800 mb-10">Our Premium Basmati Rice Collection</h2>
+        <h2 className="text-2.3xl sm:text-0.9xl font-bold text-gray-800 mb-10">Our Premium Basmati Rice Collection</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {premiumBasmati.map((product, index) => (
             <motion.div key={index} className="bg-white shadow-md rounded-lg overflow-hidden border" variants={fadeInUp}>
               <img src={product.image} alt={product.title} className="w-full h-48 object-cover" />
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800">{product.title}</h3>
-                <p className="text-sm text-gray-600 mt-2">{product.description}</p>
+                <h3 className="text-lg sm:text-base font-semibold text-gray-800">{product.title}</h3>
+                <p className="text-sm sm:text-xs text-gray-600 mt-2">{product.description}</p>
               </div>
             </motion.div>
           ))}
@@ -50,14 +51,14 @@ const SeeMoreProduct = () => {
 
       {/* Non-Basmati Rice Collection */}
       <motion.div variants={fadeInUp}>
-        <h2 className="text-2xl font-bold text-gray-800 mb-10">Our Non-Basmati Rice Collection</h2>
+        <h2 className="text-2.3xl sm:text-0.9xl font-bold text-gray-800 mb-10">Our Non-Basmati Rice Collection</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {nonBasmati.map((product, index) => (
             <motion.div key={index} className="bg-white shadow-md rounded-lg overflow-hidden border" variants={fadeInUp}>
               <img src={product.image} alt={product.title} className="w-full h-48 object-cover" />
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800">{product.title}</h3>
-                <p className="text-sm text-gray-600 mt-2">{product.description}</p>
+                <h3 className="text-lg sm:text-base font-semibold text-gray-800">{product.title}</h3>
+                <p className="text-sm sm:text-xs text-gray-600 mt-2">{product.description}</p>
               </div>
             </motion.div>
           ))}
