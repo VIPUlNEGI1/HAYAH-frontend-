@@ -54,30 +54,32 @@ const WhyChooseUs = () => {
       </p>
 
       {/* Card Row */}
-      <motion.div
-        className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8 mb-8"
-        variants={fadeInUp}
-      >
-        {Object.keys(sections).map((key) => (
-          <motion.div
-            key={key}
-            onClick={() => setActiveSection(key)}
-            className={`cursor-pointer p-4 rounded-md w-40 sm:w-48 lg:w-56 aspect-square transition-all duration-200 ${
-              activeSection === key ? "bg-white" : "bg-[#fbefe05a]"
-            }`}
-            whileHover={{ scale: 1.05 }}
-          >
-            <img
-              src={sections[key].image}
-              alt={sections[key].title}
-              className="w-12 sm:w-16 lg:w-20 h-12 sm:h-16 lg:h-20 mx-auto mb-3 lg:mb-4"
-            />
-            <h4 className="text-xs sm:text-sm lg:text-base font-semibold text-gray-800 text-center">
-              {sections[key].title}
-            </h4>
-          </motion.div>
-        ))}
-      </motion.div>
+
+ <motion.div
+  className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8 mb-8"
+  variants={fadeInUp}
+>
+  {Object.keys(sections).map((key) => (
+    <motion.div
+      key={key}
+      onClick={() => setActiveSection(key)}
+      className={`cursor-pointer p-4 rounded-md w-24 sm:w-40 lg:w-56 aspect-square transition-all duration-200 ${
+        activeSection === key ? "bg-white" : "bg-[#fbefe05a]"
+      }`}
+      whileHover={{ scale: 1.05 }}
+    >
+      <img
+        src={sections[key].image}
+        alt={sections[key].title}
+        className="w-8 h-8 sm:w-16 sm:h-16 lg:w-20 lg:h-20 mx-auto mb-3 lg:mb-4"
+      />
+      <h4 className="text-[10px] sm:text-sm lg:text-base font-semibold text-gray-800 text-center">
+        {sections[key].title}
+      </h4>
+    </motion.div>
+  ))}
+</motion.div>
+
 
       {/* Active Section Content */}
       <motion.div
