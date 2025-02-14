@@ -69,7 +69,7 @@ const Contact = () => {
 
   return (
      <motion.div
-  className="mt-16 min-h-screen bg-gradient-to-b from-[#f1fde26f] to-white text-gray-800"
+  className="mt-16 pt-8 min-h-screen bg-gradient-to-b from-[#f1fde26f] to-white text-gray-800"
   initial="hidden"
   whileInView="visible"
   viewport={{ once: true, amount: 0.2 }}
@@ -104,10 +104,11 @@ const Contact = () => {
         </motion.button>
       </form>
     </motion.div>
-
-    <motion.div className="w-full lg:w-7/12 hidden sm:block">
-      <img src={factoryImage} alt="Factory" className="w-full rounded-lg shadow-lg" />
-    </motion.div>
+          
+<motion.div className="w-full lg:w-7/12">
+  <img src={factoryImage} alt="Factory" className="w-full lg:block hidden" />
+</motion.div>
+    
   </motion.div>
 </motion.div>
   );
