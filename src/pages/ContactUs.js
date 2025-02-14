@@ -13,7 +13,7 @@ const contactUs = () => {
     <div className="mt-24">
       {/* Building Partnerships Section */}
       <motion.div
-        className="bg-[#f9f8f1] p-8 sm:p-12 rounded-lg shadow-lg mt-12"
+        className="bg-[#f9f8f1] p-8 sm:p-8 rounded-lg shadow-lg mt-12"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
