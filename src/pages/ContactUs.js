@@ -10,7 +10,7 @@ const fadeIn = {
 
 const contactUs = () => {
   return (
-    <div className="p-6 mt-10">
+    <div className="mt-24">
       {/* Building Partnerships Section */}
       <motion.div
         className="bg-[#f9f8f1] p-8 sm:p-12 rounded-lg shadow-lg mt-12"
@@ -118,16 +118,17 @@ const contactUs = () => {
           </div>
 
           {/* Right Section: Map Image */}
-          <motion.div className="flex justify-center items-center" variants={fadeIn}>
-            <img
-              src={img.map} // Replace with the correct path to your map image
-              alt="Worldwide Footprint Map"
-              className="w-full max-w-md lg:max-w-full rounded-lg shadow-md"
-            />
+          
           </motion.div>
         </div>
       </motion.div>
 
+<motion.div className="flex justify-center mt-10 items-center" variants={fadeIn}>
+          <img
+  src={img.map} // Replace with the correct path to your map image
+  alt="Worldwide Footprint Map"
+  className=" mt-14 w-full max-w-md lg:max-w-md object-contain"
+/>
       {/* Bulk Order Enquiry */}
       <motion.div
         className="mt-12"
@@ -136,11 +137,11 @@ const contactUs = () => {
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeIn}
       >
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">Bulk Order Enquiry</h1>
-        <p className="text-gray-600 mb-6">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6 ">Bulk Order Enquiry</h1>
+        <p className="text-gray-600 ">
           This is where users can enquire about bulk orders.
         </p>
-        <Contact />
+        <Contact/>
       </motion.div>
     </div>
   );
